@@ -6,11 +6,11 @@ const app = express();
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 3306 // 기본 포트는 3306
+  host: "svc.sel4.cloudtype.app",
+  user: "root",
+  password: "5191",
+  database: "blue_archive",
+  port: process.env.DB_PORT || 8000 // 기본 포트는 3306
 });
 
 db.connect((err) => {
@@ -30,6 +30,6 @@ app.get('/api/students', (req, res) => {
   });
 });
 
-const PORT = 5000;
+const PORT = 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
