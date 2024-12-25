@@ -20,7 +20,7 @@ const pool = mysql.createPool({
 // GET /api/students 엔드포인트
 app.get('/api/students', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT * FROM students');
+    const [rows] = await pool.query('SELECT * FROM students GROUP BY temp_id');
     res.json(rows);
   } catch (err) {
     console.error(err);
